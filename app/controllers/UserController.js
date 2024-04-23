@@ -9,10 +9,10 @@ class UserController {
 
   async login(req, res) {
     const { username, password } = req.body;
-    console.log(username, " and ", password)
+    console.log(username, " and ", password);
     try {
       const user = await User.authenticate(username, password);
-      console.log(user, ": ", user.isAdmin)
+      console.log(user, ": ", user.isAdmin);
       if (user) {
         if (user.isAdmin) {
           res.cookie("isAdmin", "true", { maxAge: 900000, httpOnly: true });
@@ -23,7 +23,9 @@ class UserController {
       }
     } catch (error) {
       console.error("Login error:", error);
-      res.status(500).json({ message: "An error occurred during login" });
+      return res.render("register", {
+        error: "An error occurred during login please try again",
+      });
     }
   }
 
