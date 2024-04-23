@@ -18,6 +18,7 @@ router.get("/fail", (req, res) => {
 
 // Route for admin dashboard
 router.get("/dashboard", (req, res) => {
+  console.log("isAdmin? | ", req.isAdmin)
   if (req.isAdmin) {
     res.render("adminDashboard"); // Render admin dashboard for admin users
   } else {
