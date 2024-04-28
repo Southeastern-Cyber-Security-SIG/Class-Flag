@@ -18,22 +18,13 @@ router.get("/fail", (req, res) => {
 
 // Route for admin dashboard
 router.get("/dashboard", (req, res) => {
-  console.log("isAdmin? | ", req.isAdmin)
+  console.log("isAdmin? | ", req.isAdmin);
   if (req.isAdmin) {
     res.render("adminDashboard"); // Render admin dashboard for admin users
   } else {
     res.render("dashboard"); // Redirect regular users to their dashboard
   }
 });
-// // GET route for adminDashboard page
-// router.get("/adminDashboard", (req, res) => {
-//   res.render("adminDashboard");
-// });
-
-// // GET route for dashboard page
-// router.get("/dashboard", (req, res) => {
-//   res.render("dashboard");
-// });
 
 // GET route for register page
 router.get("/register", (req, res) => {
