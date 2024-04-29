@@ -22,10 +22,7 @@ class UserController {
         res.redirect("/fail"); // Redirect to fail page upon failed login
       }
     } catch (error) {
-      console.error("Login error:", error);
-      return res.render("register", {
-        error: "An error occurred during login please try again",
-      });
+      res.redirect("/fail");
     }
   }
 
